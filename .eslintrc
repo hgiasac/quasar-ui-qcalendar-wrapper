@@ -1,0 +1,43 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
+    },
+    "extends": [
+        "eslint:recommended",
+        "plugin:vue/vue3-recommended",
+        "plugin:vue/vue3-strongly-recommended",
+        "@vue/typescript/recommended",
+        "prettier"
+    ],
+    "ignorePatterns": [
+        "**/*.spec.ts"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "project": "./tsconfig.json",
+        "sourceType": "module"
+    },
+    "plugins": [
+        "@typescript-eslint",
+        "functional"
+    ],
+    "rules": {
+        "@typescript-eslint/no-explicit-any": "off",
+        "vue/require-default-prop": "off"
+    },
+    "settings": {
+        "import/parsers": {
+            "@typescript-eslint/parser": [
+                ".ts",
+                ".tsx"
+            ]
+        },
+        "import/resolver": {
+            "typescript": {
+                "alwaysTryTypes": true
+            }
+        }
+    }
+}

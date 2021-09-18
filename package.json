@@ -1,0 +1,43 @@
+{
+  "name": "@hgiasac/quasar-ui-qcalendar-wrapper",
+  "version": "0.0.1",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint --ext .js,.ts,.tsx,.vue ./src",
+    "format": "eslint --fix --ext .js,.ts,.tsx,.vue ./src",
+    "test": "npm run format && jest",
+    "test:ci": "npm run lint && jest --ci"
+  },
+  "peerDependencies": {
+    "@quasar/quasar-ui-qcalendar": "^4.0.0-beta.3",
+    "vue": "^3.0.0"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^2.0.2",
+    "@types/jest": "^27.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.29.1",
+    "@typescript-eslint/parser": "^4.29.1",
+    "@vue/eslint-config-typescript": "^7.0.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-functional": "^3.6.0",
+    "eslint-plugin-vue": "^7.16.0",
+    "ts-jest": "^27.0.4",
+    "typescript": "^4.3.5"
+  },
+  "description": "Quasar calendar component wrappers with types for JSX",
+  "author": "Toan Nguyen",
+  "license": "MIT",
+  "keywords": [
+    "quasar",
+    "types",
+    "calendar"
+  ],
+  "homepage": "https://github.com/hgiasac/quasar-ui-qcalendar-wrapper",
+  "bugs": {
+    "url": "https://github.com/hgiasac/quasar-ui-qcalendar-wrapper/issues",
+    "email": "hgiasac@gmail.com"
+  }
+}
