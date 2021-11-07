@@ -21,26 +21,26 @@ import {
   useTimesProps,
 } from "./props";
 import {
-  DateResource,
-  XCalendarDaySlotsCommon,
-  XCalendarRef,
-  XCalendarResourceBaseSlots,
-  XCalendarSlotData,
-  XCalendarHeadDayLabelScope,
-  XCalendarResourceExpandedEventData,
+  QDateResource,
+  QCalendarDaySlotsCommon,
+  QCalendarRef,
+  QCalendarResourceBaseSlots,
+  QCalendarSlotData,
+  QCalendarHeadDayLabelScope,
+  QCalendarResourceExpandedEventData,
 } from "./types";
 
-export type XCalendarSchedulerRef = XCalendarRef;
+export type QCalendarSchedulerRef = QCalendarRef;
 
-export type XCalendarSchedulerColumnHeaderBeforeScope = {
+export type QCalendarSchedulerColumnHeaderBeforeScope = {
   timestamp: Timestamp;
   columnIndex: number;
 };
-export type XCalendarSchedulerColumnHeaderAfterScope =
-  XCalendarSchedulerColumnHeaderBeforeScope;
+export type QCalendarSchedulerColumnHeaderAfterScope =
+  QCalendarSchedulerColumnHeaderBeforeScope;
 
-export type XCalendarSchedulerResourceDaysScope<T = Record<string, any>> = {
-  resource: DateResource<T>;
+export type QCalendarSchedulerResourceDaysScope<T = Record<string, any>> = {
+  resource: QDateResource<T>;
   resourceIndex: number;
   indentLevel: number;
   expanded: boolean;
@@ -48,35 +48,35 @@ export type XCalendarSchedulerResourceDaysScope<T = Record<string, any>> = {
   timestamps: Timestamp;
 };
 
-export type XCalendarSchedulerDayScope = {
+export type QCalendarSchedulerDayScope = {
   timestamp: Timestamp;
   columnIndex?: number;
-  resource: DateResource;
+  resource: QDateResource;
   resourceIndex: number;
   activeDate: boolean;
   droppable: boolean;
   indentLevel: number;
 };
 
-export type XCalendarSchedulerClickResourceEventData = {
+export type QCalendarSchedulerClickResourceEventData = {
   event: KeyboardEvent;
-  scope: XCalendarSchedulerDayScope;
+  scope: QCalendarSchedulerDayScope;
 };
 
-export type XCalendarSchedulerSlots<
+export type QCalendarSchedulerSlots<
   R extends Record<string, any> = Record<string, any>
-> = XCalendarResourceBaseSlots<R> &
-  XCalendarDaySlotsCommon & {
+> = QCalendarResourceBaseSlots<R> &
+  QCalendarDaySlotsCommon & {
     "column-header-before"?: (
-      data: XCalendarSlotData<XCalendarSchedulerColumnHeaderBeforeScope>
+      data: QCalendarSlotData<QCalendarSchedulerColumnHeaderBeforeScope>
     ) => JSX.Element;
     "column-header-after"?: (
-      data: XCalendarSlotData<XCalendarSchedulerColumnHeaderAfterScope>
+      data: QCalendarSlotData<QCalendarSchedulerColumnHeaderAfterScope>
     ) => JSX.Element;
     "resource-days"?: (
-      data: XCalendarSlotData<XCalendarSchedulerResourceDaysScope>
+      data: QCalendarSlotData<QCalendarSchedulerResourceDaysScope>
     ) => JSX.Element;
-    day?: (data: XCalendarSlotData<XCalendarSchedulerDayScope>) => JSX.Element;
+    day?: (data: QCalendarSlotData<QCalendarSchedulerDayScope>) => JSX.Element;
   };
 
 const calendarSchedulerProps = {
@@ -90,12 +90,12 @@ const calendarSchedulerProps = {
   ...useMoveProps,
   ...useCheckChangeProps,
   onResourceExpanded: Function as PropType<
-    (data: XCalendarResourceExpandedEventData) => void
+    (data: QCalendarResourceExpandedEventData) => void
   >,
   onClickResource: Function as PropType<
-    (data: XCalendarSchedulerClickResourceEventData) => void
+    (data: QCalendarSchedulerClickResourceEventData) => void
   >,
-  onClickDate: Function as PropType<(data: XCalendarHeadDayLabelScope) => void>,
+  onClickDate: Function as PropType<(data: QCalendarHeadDayLabelScope) => void>,
 };
 
 export default QCalendarScheduler as DefineComponent<

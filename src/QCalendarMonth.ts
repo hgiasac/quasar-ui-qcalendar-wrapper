@@ -17,23 +17,23 @@ import {
   useNavigationProps,
   useTimesProps,
 } from "./props";
-import { WeekDay, MiniMode, XCalendarSlotData, XCalendarRef } from "./types";
+import { WeekDay, MiniMode, QCalendarSlotData, QCalendarRef } from "./types";
 
-export type XCalendarMonthRef = XCalendarRef;
+export type QCalendarMonthRef = QCalendarRef;
 
-export type XCalendarMonthWeekScope = {
+export type QCalendarMonthWeekScope = {
   week: Timestamp[];
   weekdays: WeekDay[];
   miniMode: MiniMode;
 };
 
-export type XCalendarMonthHeadWorkWeekScope = {
+export type QCalendarMonthHeadWorkWeekScope = {
   start: Timestamp;
   end: Timestamp;
   miniMode: MiniMode;
 };
 
-export type XCalendarMonthHeadDayScope = {
+export type QCalendarMonthHeadDayScope = {
   weekday: WeekDay;
   timestamp: Timestamp;
   days: Timestamp[];
@@ -41,18 +41,18 @@ export type XCalendarMonthHeadDayScope = {
   miniMode: MiniMode;
 };
 
-export type XCalendarMonthHeadDayEventScope = XCalendarMonthHeadDayScope & {
+export type QCalendarMonthHeadDayEventScope = QCalendarMonthHeadDayScope & {
   activeDate: boolean;
   disabled: boolean;
 };
 
-export type XCalendarMonthWorkWeekScope = {
+export type QCalendarMonthWorkWeekScope = {
   workweekLabel: string;
   week: Timestamp[];
   miniMode: MiniMode;
 };
 
-export type XCalendarMonthDayScope = {
+export type QCalendarMonthDayScope = {
   outside: boolean;
   timestamp: Timestamp;
   miniMode: MiniMode;
@@ -61,7 +61,7 @@ export type XCalendarMonthDayScope = {
   droppable: boolean;
 };
 
-export type XCalendarMonthHeadDayLabelScope = {
+export type QCalendarMonthHeadDayLabelScope = {
   dayLabel: boolean;
   timestamp: Timestamp;
   outside: boolean;
@@ -70,49 +70,49 @@ export type XCalendarMonthHeadDayLabelScope = {
   miniMode: boolean;
 };
 
-export type XCalendarMonthDayOfYearScope = {
+export type QCalendarMonthDayOfYearScope = {
   timestamp: Timestamp;
 };
-export type XCalendarMonthLabelScope = {
+export type QCalendarMonthLabelScope = {
   monthLabel: string;
   timestamp: Timestamp;
   miniMode: boolean;
 };
 
-export type XCalendarMonthClickDayEventData = {
+export type QCalendarMonthClickDayEventData = {
   event: KeyboardEvent;
-  scope: XCalendarMonthDayScope;
+  scope: QCalendarMonthDayScope;
 };
-export type XCalendarMonthClickDateEventData = {
+export type QCalendarMonthClickDateEventData = {
   event: KeyboardEvent;
-  scope: XCalendarMonthHeadDayLabelScope;
+  scope: QCalendarMonthHeadDayLabelScope;
 };
-export type XCalendarMonthSlots = {
-  day?: (data: XCalendarSlotData<XCalendarMonthDayScope>) => JSX.Element;
-  week?: (data: XCalendarSlotData<XCalendarMonthWeekScope>) => JSX.Element;
+export type QCalendarMonthSlots = {
+  day?: (data: QCalendarSlotData<QCalendarMonthDayScope>) => JSX.Element;
+  week?: (data: QCalendarSlotData<QCalendarMonthWeekScope>) => JSX.Element;
   workweek?: (
-    data: XCalendarSlotData<XCalendarMonthWorkWeekScope>
+    data: QCalendarSlotData<QCalendarMonthWorkWeekScope>
   ) => JSX.Element;
   "head-workweek"?: (
-    data: XCalendarSlotData<XCalendarMonthHeadWorkWeekScope>
+    data: QCalendarSlotData<QCalendarMonthHeadWorkWeekScope>
   ) => JSX.Element;
   "head-day"?: (
-    data: XCalendarSlotData<XCalendarMonthHeadDayScope>
+    data: QCalendarSlotData<QCalendarMonthHeadDayScope>
   ) => JSX.Element;
   "head-day-label"?: (
-    data: XCalendarSlotData<XCalendarMonthHeadDayLabelScope>
+    data: QCalendarSlotData<QCalendarMonthHeadDayLabelScope>
   ) => JSX.Element;
   "head-day-button"?: (
-    data: XCalendarSlotData<XCalendarMonthHeadDayLabelScope>
+    data: QCalendarSlotData<QCalendarMonthHeadDayLabelScope>
   ) => JSX.Element;
   "head-day-event"?: (
-    data: XCalendarSlotData<XCalendarMonthHeadDayEventScope>
+    data: QCalendarSlotData<QCalendarMonthHeadDayEventScope>
   ) => JSX.Element;
   "day-of-year"?: (
-    data: XCalendarSlotData<XCalendarMonthDayOfYearScope>
+    data: QCalendarSlotData<QCalendarMonthDayOfYearScope>
   ) => JSX.Element;
   "month-label"?: (
-    data: XCalendarSlotData<XCalendarMonthLabelScope>
+    data: QCalendarSlotData<QCalendarMonthLabelScope>
   ) => JSX.Element;
 };
 
@@ -126,10 +126,10 @@ const calendarMonthProps = {
   ...useMoveProps,
   onMiniMode: Function as PropType<(value: boolean) => void>,
   onClickDay: Function as PropType<
-    (data: XCalendarMonthClickDayEventData) => void
+    (data: QCalendarMonthClickDayEventData) => void
   >,
   onClickDate: Function as PropType<
-    (data: XCalendarMonthClickDateEventData) => void
+    (data: QCalendarMonthClickDateEventData) => void
   >,
 };
 

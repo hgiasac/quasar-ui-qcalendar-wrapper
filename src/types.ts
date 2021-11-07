@@ -23,12 +23,12 @@ export type TransitionType =
   | "jump-down";
 
 export type WeekDay = 0 | 1 | 2 | 3 | 4 | 5 | 6;
-export type DateResource<P extends Record<string, any> = Record<string, any>> =
+export type QDateResource<P extends Record<string, any> = Record<string, any>> =
   P & {
     label: string;
     height?: number;
     expanded?: boolean;
-    children?: DateResource<P>[];
+    children?: QDateResource<P>[];
   };
 
 export type TimeStartPosFunction = (
@@ -39,7 +39,7 @@ export type TimeStartPosXFunction = TimeStartPosFunction;
 export type TimeDurationHeightFunction = (duration: number | string) => number;
 export type TimeDurationWidthFunction = (minutes: number) => number;
 
-export type XCalendarRef = {
+export type QCalendarRef = {
   prev: () => void;
   next: () => void;
   move: () => void;
@@ -50,74 +50,74 @@ export type XCalendarRef = {
   scrollToTime: (time: string) => void;
 };
 
-export type XCalendarDayScope = {
+export type QCalendarDayScope = {
   timestamp: Timestamp;
   timeStartPos: TimeStartPosFunction;
   timeDurationHeight: TimeDurationHeightFunction;
   columnIndex?: number;
 };
 
-export type XCalendarSlotData<T> = {
+export type QCalendarSlotData<T> = {
   scope: T;
 };
 
-export type XCalendarHeadDayScope = XCalendarDayScope & {
+export type QCalendarHeadDayScope = QCalendarDayScope & {
   activeDate: boolean;
   droppable: boolean;
 };
-export type XCalendarHeadDayData = XCalendarSlotData<XCalendarHeadDayScope>;
+export type QCalendarHeadDayData = QCalendarSlotData<QCalendarHeadDayScope>;
 
-export type XCalendarHeadDayEventsScope = {
+export type QCalendarHeadDayEventsScope = {
   days: Timestamp;
   ref: Ref<HTMLDivElement>;
 };
 
-export type XCalendarHeadDayEventScope = XCalendarDayScope & {
+export type QCalendarHeadDayEventScope = QCalendarDayScope & {
   activeDate: boolean;
 };
 
-export type XCalendarDayHeadWeekdayLabelScope = XCalendarDayScope & {
+export type QCalendarDayHeadWeekdayLabelScope = QCalendarDayScope & {
   shortWeekdayLabel: boolean;
 };
 
-export type XCalendarHeadDayLabelScope = {
+export type QCalendarHeadDayLabelScope = {
   dayLabel: string;
   timestamp: Timestamp;
   activeDate: boolean;
 };
-export type XCalendarHeadDayButtonScope = XCalendarHeadDayLabelScope;
+export type QCalendarHeadDayButtonScope = QCalendarHeadDayLabelScope;
 
-export type XCalendarDayContainerScope = {
+export type QCalendarDayContainerScope = {
   days: Timestamp[];
 };
 
-export type XCalendarHeadResourcesScope<
+export type QCalendarHeadResourcesScope<
   R extends Record<string, any> = Record<string, any>
 > = {
   timestamps: Timestamp[];
   date: string;
-  resources: DateResource<R>[];
+  resources: QDateResource<R>[];
 };
 
-export type XCalendarResourceLabelScope<
+export type QCalendarResourceLabelScope<
   R extends Record<string, any> = Record<string, any>
 > = {
-  resource: DateResource<R>;
+  resource: QDateResource<R>;
   timestamps: Timestamp[];
   resourceIndex: number;
   indentLevel: number;
   label: string;
 };
 
-export type XCalendarResourceLabelData<
+export type QCalendarResourceLabelData<
   R extends Record<string, any> = Record<string, any>
-> = XCalendarSlotData<XCalendarResourceLabelScope<R>>;
+> = QCalendarSlotData<QCalendarResourceLabelScope<R>>;
 
-export type XCalendarResourceExpandedEventData<
+export type QCalendarResourceExpandedEventData<
   R extends Record<string, any> = Record<string, any>
 > = {
   expanded: boolean;
-  scope: XCalendarResourceLabelScope<R>;
+  scope: QCalendarResourceLabelScope<R>;
 };
 
 export type DateEventScope = {
@@ -130,87 +130,87 @@ export type DateEventScope = {
 export type DateEventFunction = (
   ev: Event,
   type: "head-day" | "head-column" | "column",
-  data: XCalendarSlotData<DateEventScope>
+  data: QCalendarSlotData<DateEventScope>
 ) => boolean;
 
-export type XCalendarIntervalLabelScope = {
+export type QCalendarIntervalLabelScope = {
   timestamp: Timestamp;
   index: number;
   label: string;
   droppable: boolean;
 };
 
-export type XCalendarIntervalLabelData =
-  XCalendarSlotData<XCalendarIntervalLabelScope>;
-export type XCalendarResourceIntervalScope<
+export type QCalendarIntervalLabelData =
+  QCalendarSlotData<QCalendarIntervalLabelScope>;
+export type QCalendarResourceIntervalScope<
   R extends Record<string, any> = Record<string, any>
 > = {
   timestamp: Timestamp;
   resourceIndex: number;
-  resource: DateResource<R>;
+  resource: QDateResource<R>;
   activeDate: boolean;
 };
 
-export type XCalendarResourceIntervalsScope<
+export type QCalendarResourceIntervalsScope<
   R extends Record<string, any> = Record<string, any>
 > = {
   timestamp: Timestamp;
   resourceIndex: number;
-  resource: DateResource<R>;
+  resource: QDateResource<R>;
   droppable: boolean;
   timeStartPosX: TimeStartPosXFunction;
   timeDurationWidth: TimeDurationWidthFunction;
 };
 
-export type XCalendarResourceBaseSlots<
+export type QCalendarResourceBaseSlots<
   R extends Record<string, any> = Record<string, any>
 > = {
   "head-resources"?: (
-    data: XCalendarSlotData<XCalendarHeadResourcesScope<R>>
+    data: QCalendarSlotData<QCalendarHeadResourcesScope<R>>
   ) => JSX.Element;
-  "resource-label"?: (data: XCalendarResourceLabelData<R>) => JSX.Element;
+  "resource-label"?: (data: QCalendarResourceLabelData<R>) => JSX.Element;
 };
 
-export type XCalendarDaySlotsCommon = {
+export type QCalendarDaySlotsCommon = {
   "head-days-events"?: (
-    data: XCalendarSlotData<XCalendarHeadDayEventsScope>
+    data: QCalendarSlotData<QCalendarHeadDayEventsScope>
   ) => JSX.Element;
-  "head-day"?: (data: XCalendarSlotData<XCalendarHeadDayScope>) => JSX.Element;
-  "head-date"?: (data: XCalendarSlotData<XCalendarHeadDayScope>) => JSX.Element;
+  "head-day"?: (data: QCalendarSlotData<QCalendarHeadDayScope>) => JSX.Element;
+  "head-date"?: (data: QCalendarSlotData<QCalendarHeadDayScope>) => JSX.Element;
   "head-day-event"?: (
-    data: XCalendarSlotData<XCalendarHeadDayEventScope>
+    data: QCalendarSlotData<QCalendarHeadDayEventScope>
   ) => JSX.Element;
   "head-weekday-label"?: (
-    data: XCalendarSlotData<XCalendarDayHeadWeekdayLabelScope>
+    data: QCalendarSlotData<QCalendarDayHeadWeekdayLabelScope>
   ) => JSX.Element;
   "head-day-label"?: (
-    data: XCalendarSlotData<XCalendarHeadDayLabelScope>
+    data: QCalendarSlotData<QCalendarHeadDayLabelScope>
   ) => JSX.Element;
   "head-day-button"?: (
-    data: XCalendarSlotData<XCalendarHeadDayButtonScope>
+    data: QCalendarSlotData<QCalendarHeadDayButtonScope>
   ) => JSX.Element;
   "day-container"?: (
-    data: XCalendarSlotData<XCalendarDayContainerScope>
+    data: QCalendarSlotData<QCalendarDayContainerScope>
   ) => JSX.Element;
 };
 
-export type XCalendarIntervalSlots<
+export type QCalendarIntervalSlots<
   R extends Record<string, any> = Record<string, any>
 > = {
-  "interval-label"?: (data: XCalendarIntervalLabelData) => JSX.Element;
+  "interval-label"?: (data: QCalendarIntervalLabelData) => JSX.Element;
   "resource-interval"?: (
-    data: XCalendarSlotData<XCalendarResourceIntervalScope<R>>
+    data: QCalendarSlotData<QCalendarResourceIntervalScope<R>>
   ) => JSX.Element;
   "resource-intervals"?: (
-    data: XCalendarSlotData<XCalendarResourceIntervalsScope<R>>
+    data: QCalendarSlotData<QCalendarResourceIntervalsScope<R>>
   ) => JSX.Element;
 };
 
-export type XCalendarTaskFooterDayScope<T = Record<string, any>> = {
+export type QCalendarTaskFooterDayScope<T = Record<string, any>> = {
   timestamp: Timestamp;
   footer: T;
   index: number;
 };
 
-export type XCalendarTaskFooterDayData<T = Record<string, any>> =
-  XCalendarSlotData<XCalendarTaskFooterDayScope<T>>;
+export type QCalendarTaskFooterDayData<T = Record<string, any>> =
+  QCalendarSlotData<QCalendarTaskFooterDayScope<T>>;

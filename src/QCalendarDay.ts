@@ -20,61 +20,61 @@ import {
   useTimesProps,
 } from "./props";
 import {
-  XCalendarSlotData,
-  XCalendarDayScope,
-  XCalendarRef,
-  XCalendarDaySlotsCommon,
-  XCalendarHeadDayLabelScope,
+  QCalendarSlotData,
+  QCalendarDayScope,
+  QCalendarRef,
+  QCalendarDaySlotsCommon,
+  QCalendarHeadDayLabelScope,
 } from "./types";
 
-export type XCalendarDayRef = XCalendarRef;
+export type QCalendarDayRef = QCalendarRef;
 
-export type XCalendarDayHeadIntervalsScope = {
+export type QCalendarDayHeadIntervalsScope = {
   timestamps: Timestamp;
   date: Timestamp;
 };
 
-export type XCalendarDayIntervalScope = XCalendarDayScope & {
+export type QCalendarDayIntervalScope = QCalendarDayScope & {
   droppable: boolean;
 };
 
-export type XCalendarDayColumnHeaderBeforeScope = {
+export type QCalendarDayColumnHeaderBeforeScope = {
   timestamp: Timestamp;
   columnIndex: number;
 };
 
-export type XCalendarDayColumnHeaderAfterScope =
-  XCalendarDayColumnHeaderBeforeScope;
+export type QCalendarDayColumnHeaderAfterScope =
+  QCalendarDayColumnHeaderBeforeScope;
 
-export type XCalendarDayIntervalLabelScope = {
+export type QCalendarDayIntervalLabelScope = {
   timestamp: Timestamp;
   label?: string;
 };
 
-export type XCalendarDayClickDateEventData = {
-  scope: XCalendarHeadDayLabelScope;
+export type QCalendarDayClickDateEventData = {
+  scope: QCalendarHeadDayLabelScope;
 };
-export type XCalendarDateClickTimeEventData = {
+export type QCalendarDateClickTimeEventData = {
   event: KeyboardEvent;
-  scope: XCalendarDayIntervalScope;
+  scope: QCalendarDayIntervalScope;
 };
 
-export type XCalendarDaySlots = XCalendarDaySlotsCommon & {
+export type QCalendarDaySlots = QCalendarDaySlotsCommon & {
   "head-intervals"?: (
-    data: XCalendarSlotData<XCalendarDayHeadIntervalsScope>
+    data: QCalendarSlotData<QCalendarDayHeadIntervalsScope>
   ) => JSX.Element;
   "column-header-before"?: (
-    data: XCalendarSlotData<XCalendarDayColumnHeaderBeforeScope>
+    data: QCalendarSlotData<QCalendarDayColumnHeaderBeforeScope>
   ) => JSX.Element;
   "column-header-after"?: (
-    data: XCalendarSlotData<XCalendarDayColumnHeaderAfterScope>
+    data: QCalendarSlotData<QCalendarDayColumnHeaderAfterScope>
   ) => JSX.Element;
-  "day-body"?: (data: XCalendarSlotData<XCalendarDayScope>) => JSX.Element;
+  "day-body"?: (data: QCalendarSlotData<QCalendarDayScope>) => JSX.Element;
   "day-interval"?: (
-    data: XCalendarSlotData<XCalendarDayIntervalScope>
+    data: QCalendarSlotData<QCalendarDayIntervalScope>
   ) => JSX.Element;
   "interval-label"?: (
-    data: XCalendarSlotData<XCalendarDayIntervalLabelScope>
+    data: QCalendarSlotData<QCalendarDayIntervalLabelScope>
   ) => JSX.Element;
 };
 
@@ -89,10 +89,10 @@ const calendarDayProps = {
   ...useMoveProps,
   ...useCheckChangeProps,
   onClickDate: Function as PropType<
-    (data: XCalendarDayClickDateEventData) => void
+    (data: QCalendarDayClickDateEventData) => void
   >,
   onClickTime: Function as PropType<
-    (data: XCalendarDateClickTimeEventData) => void
+    (data: QCalendarDateClickTimeEventData) => void
   >,
 };
 

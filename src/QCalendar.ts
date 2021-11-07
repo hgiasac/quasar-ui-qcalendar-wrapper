@@ -19,7 +19,7 @@ import {
   useTimesProps,
 } from "./props";
 
-export type CalendarMode =
+export type QCalendarMode =
   | "day"
   | "month"
   | "agenda"
@@ -27,9 +27,9 @@ export type CalendarMode =
   | "scheduler"
   | "task";
 
-const calendarProps = {
+export const useCalendarProps = {
   mode: {
-    type: String as PropType<CalendarMode>,
+    type: String as PropType<QCalendarMode>,
   },
   ...useCommonProps,
   ...useMonthProps,
@@ -44,5 +44,5 @@ const calendarProps = {
 };
 
 export default QCalendar as DefineComponent<
-  ComponentObjectPropsOptions<ExtractPropTypes<typeof calendarProps>>
+  ComponentObjectPropsOptions<ExtractPropTypes<typeof useCalendarProps>>
 >;

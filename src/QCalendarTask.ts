@@ -17,15 +17,15 @@ import {
   useTimesProps,
 } from "./props";
 import {
-  XCalendarSlotData,
-  XCalendarHeadDayLabelScope,
-  XCalendarResourceExpandedEventData,
-  XCalendarHeadDayButtonScope,
-  XCalendarHeadDayScope,
-  XCalendarTaskFooterDayData,
+  QCalendarSlotData,
+  QCalendarHeadDayLabelScope,
+  QCalendarResourceExpandedEventData,
+  QCalendarHeadDayButtonScope,
+  QCalendarHeadDayScope,
+  QCalendarTaskFooterDayData,
 } from "./types";
 
-export type XCalendarTaskRef = {
+export type QCalendarTaskRef = {
   prev: () => void;
   next: () => void;
   move: () => void;
@@ -33,7 +33,7 @@ export type XCalendarTaskRef = {
   updateCurrent: () => void;
 };
 
-export type XCalendarTaskScope<T = Record<string, any>> = {
+export type QCalendarTaskScope<T = Record<string, any>> = {
   start: Timestamp;
   end: Timestamp;
   task: T;
@@ -41,83 +41,83 @@ export type XCalendarTaskScope<T = Record<string, any>> = {
   expanded: boolean;
 };
 
-export type XCalendarTaskDayScope<T = Record<string, any>> = {
+export type QCalendarTaskDayScope<T = Record<string, any>> = {
   timestamp: Timestamp;
   task: T;
   taskIndex: number;
   activeDate: boolean;
 };
 
-export type XCalendarTaskDaysScope<T = Record<string, any>> = {
+export type QCalendarTaskDaysScope<T = Record<string, any>> = {
   timestamps: Timestamp[];
   task: T;
   taskIndex: number;
   cellWidth: number;
 };
 
-export type XCalendarTaskFooterTaskScope<T = Record<string, any>> = {
+export type QCalendarTaskFooterTaskScope<T = Record<string, any>> = {
   start: Timestamp;
   end: Timestamp;
   footer: T;
   index: number;
 };
-export type XCalendarTaskHeadTasksScope = {
+export type QCalendarTaskHeadTasksScope = {
   start: Timestamp;
   end: Timestamp;
 };
-export type XCalendarTaskTitleTaskScope = {
+export type QCalendarTaskTitleTaskScope = {
   start: Timestamp;
   end: Timestamp;
   cellWidth: number;
   title: string;
   index: number;
 };
-export type XCalendarTaskTitleDayScope = {
+export type QCalendarTaskTitleDayScope = {
   timestamp: Timestamp;
   cellWidth: number;
   title: string;
   index: number;
 };
 
-export type XCalendarTaskHeadWeekdayLabelScope = {
+export type QCalendarTaskHeadWeekdayLabelScope = {
   timestamp: Timestamp;
 };
 
-export type XCalendarTaskExpandedEventData<T = Record<string, any>> = {
+export type QCalendarTaskExpandedEventData<T = Record<string, any>> = {
   expanded: boolean;
-  scope: XCalendarTaskScope<T>;
+  scope: QCalendarTaskScope<T>;
 };
 
-export type XCalendarTaskSlots<
+export type QCalendarTaskSlots<
   T extends Record<string, any> = Record<string, any>
 > = {
-  task?: (data: XCalendarSlotData<XCalendarTaskScope<T>>) => JSX.Element;
-  day?: (data: XCalendarSlotData<XCalendarTaskDayScope<T>>) => JSX.Element;
-  days?: (data: XCalendarSlotData<XCalendarTaskDaysScope<T>>) => JSX.Element;
+  task?: (data: QCalendarSlotData<QCalendarTaskScope<T>>) => JSX.Element;
+  day?: (data: QCalendarSlotData<QCalendarTaskDayScope<T>>) => JSX.Element;
+  days?: (data: QCalendarSlotData<QCalendarTaskDaysScope<T>>) => JSX.Element;
   "footer-task"?: (
-    data: XCalendarSlotData<XCalendarTaskFooterTaskScope<T>>
+    data: QCalendarSlotData<QCalendarTaskFooterTaskScope<T>>
   ) => JSX.Element;
-  "footer-day"?: (data: XCalendarTaskFooterDayData<T>) => JSX.Element;
+  "footer-day"?: (data: QCalendarTaskFooterDayData<T>) => JSX.Element;
   "head-tasks"?: (
-    data: XCalendarSlotData<XCalendarTaskHeadTasksScope>
+    data: QCalendarSlotData<QCalendarTaskHeadTasksScope>
   ) => JSX.Element;
   "title-task"?: (
-    data: XCalendarSlotData<XCalendarTaskTitleTaskScope>
+    data: QCalendarSlotData<QCalendarTaskTitleTaskScope>
   ) => JSX.Element;
   "head-weekday-label"?: (
-    data: XCalendarSlotData<XCalendarTaskHeadWeekdayLabelScope>
+    data: QCalendarSlotData<QCalendarTaskHeadWeekdayLabelScope>
   ) => JSX.Element;
   "head-day-label"?: (
-    data: XCalendarSlotData<XCalendarHeadDayLabelScope>
+    data: QCalendarSlotData<QCalendarHeadDayLabelScope>
   ) => JSX.Element;
   "head-day-button"?: (
-    data: XCalendarSlotData<XCalendarHeadDayButtonScope>
+    data: QCalendarSlotData<QCalendarHeadDayButtonScope>
   ) => JSX.Element;
   "title-day"?: (
-    data: XCalendarSlotData<XCalendarTaskTitleDayScope>
+    data: QCalendarSlotData<QCalendarTaskTitleDayScope>
   ) => JSX.Element;
-  "head-day"?: (data: XCalendarSlotData<XCalendarHeadDayScope>) => JSX.Element;
-  "head-date"?: (data: XCalendarSlotData<XCalendarHeadDayScope>) => JSX.Element;
+  "head-day"?: (data: QCalendarSlotData<QCalendarHeadDayScope>) => JSX.Element;
+  "head-date"?: (data: QCalendarSlotData<QCalendarHeadDayScope>) => JSX.Element;
 };
 
 const calendarTaskProps = {
@@ -127,9 +127,9 @@ const calendarTaskProps = {
   ...useCheckChangeProps,
   ...useMoveProps,
   onTaskExpanded: Function as PropType<
-    (data: XCalendarResourceExpandedEventData) => void
+    (data: QCalendarResourceExpandedEventData) => void
   >,
-  onClickDate: Function as PropType<(data: XCalendarHeadDayLabelScope) => void>,
+  onClickDate: Function as PropType<(data: QCalendarHeadDayLabelScope) => void>,
 };
 
 export default QCalendarTask as DefineComponent<

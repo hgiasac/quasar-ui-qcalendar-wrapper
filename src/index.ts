@@ -1,24 +1,26 @@
-import XCalendar from "./XCalendar";
-import XCalendarDay from "./XCalendarDay";
-import XCalendarMonth from "./XCalendarMonth";
-import XCalendarResource from "./XCalendarResource";
-import XCalendarScheduler from "./XCalendarScheduler";
-import XCalendarTask from "./XCalendarTask";
+import QCalendar from "./QCalendar";
+import QCalendarAgenda from "./QCalendarAgenda";
+import QCalendarDay from "./QCalendarDay";
+import QCalendarMonth from "./QCalendarMonth";
+import QCalendarResource from "./QCalendarResource";
+import QCalendarScheduler from "./QCalendarScheduler";
+import QCalendarTask from "./QCalendarTask";
 
 export * from "./types";
 export * from "@quasar/quasar-ui-qcalendar";
-export * from "./XCalendarScheduler";
-export * from "./XCalendarResource";
-export * from "./XCalendarDay";
-export * from "./XCalendarAgenda";
-export * from "./XCalendarMonth";
-export * from "./XCalendarTask";
+export * from "./QCalendarScheduler";
+export * from "./QCalendarResource";
+export * from "./QCalendarDay";
+export * from "./QCalendarAgenda";
+export * from "./QCalendarMonth";
+export * from "./QCalendarTask";
 
 export {
-  XCalendar,
-  XCalendarScheduler,
-  XCalendarResource,
-  XCalendarDay,
-  XCalendarMonth,
-  XCalendarTask,
+  QCalendar,
+  QCalendarScheduler,
+  QCalendarResource,
+  QCalendarDay,
+  QCalendarMonth,
+  QCalendarTask,
+  QCalendarAgenda,
 };

@@ -20,24 +20,24 @@ import {
   useTimesProps,
 } from "./props";
 import {
-  XCalendarRef,
-  XCalendarIntervalSlots,
-  XCalendarResourceBaseSlots,
-  XCalendarResourceExpandedEventData,
-  XCalendarResourceLabelScope,
+  QCalendarRef,
+  QCalendarIntervalSlots,
+  QCalendarResourceBaseSlots,
+  QCalendarResourceExpandedEventData,
+  QCalendarResourceLabelScope,
 } from "./types";
 
-export type XCalendarResourceRef = XCalendarRef;
+export type QCalendarResourceRef = QCalendarRef;
 
-export type XCalendarResourceSlots<
+export type QCalendarResourceSlots<
   R extends Record<string, any> = Record<string, any>
-> = XCalendarResourceBaseSlots<R> & XCalendarIntervalSlots<R>;
+> = QCalendarResourceBaseSlots<R> & QCalendarIntervalSlots<R>;
 
-export type XCalendarClickResourceEventData<
+export type QCalendarClickResourceEventData<
   R extends Record<string, any> = Record<string, any>
 > = {
   event: KeyboardEvent;
-  scope: XCalendarResourceLabelScope<R>;
+  scope: QCalendarResourceLabelScope<R>;
 };
 
 const calendarSchedulerProps = {
@@ -51,10 +51,10 @@ const calendarSchedulerProps = {
   ...useCheckChangeProps,
   ...useMoveProps,
   onResourceExpanded: Function as PropType<
-    (data: XCalendarResourceExpandedEventData) => void
+    (data: QCalendarResourceExpandedEventData) => void
   >,
   onClickResource: Function as PropType<
-    (data: XCalendarClickResourceEventData) => void
+    (data: QCalendarClickResourceEventData) => void
   >,
 };
 

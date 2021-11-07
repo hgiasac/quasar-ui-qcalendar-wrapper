@@ -20,16 +20,16 @@ import {
   useTimesProps,
 } from "./props";
 import {
-  XCalendarRef,
-  XCalendarDaySlotsCommon,
-  XCalendarDayScope,
-  XCalendarSlotData,
-  XCalendarHeadDayLabelScope,
+  QCalendarRef,
+  QCalendarDaySlotsCommon,
+  QCalendarDayScope,
+  QCalendarSlotData,
+  QCalendarHeadDayLabelScope,
 } from "./types";
 
-export type XCalendarAgendaRef = XCalendarRef;
+export type QCalendarAgendaRef = QCalendarRef;
 
-export type XCalendarAgendaHeadColumnScope<
+export type QCalendarAgendaHeadColumnScope<
   C extends Record<string, any> = Record<string, any>
 > = {
   column: C;
@@ -37,31 +37,31 @@ export type XCalendarAgendaHeadColumnScope<
   days: Timestamp[];
 };
 
-export type XCalendarAgendaColumnScope<
+export type QCalendarAgendaColumnScope<
   C extends Record<string, any> = Record<string, any>
-> = XCalendarAgendaHeadColumnScope<C>;
+> = QCalendarAgendaHeadColumnScope<C>;
 
-export type XCalendarAgendaHeadColumnLabelScope<C = Record<string, any>> = {
+export type QCalendarAgendaHeadColumnLabelScope<C = Record<string, any>> = {
   column: C;
 };
 
-export type XCalendarAgendaSlots<
+export type QCalendarAgendaSlots<
   C extends Record<string, any> = Record<string, any>
-> = XCalendarDaySlotsCommon & {
+> = QCalendarDaySlotsCommon & {
   "head-column"?: (
-    data: XCalendarSlotData<XCalendarAgendaHeadColumnScope<C>>
+    data: QCalendarSlotData<QCalendarAgendaHeadColumnScope<C>>
   ) => JSX.Element;
   "head-column-label"?: (
-    data: XCalendarSlotData<XCalendarAgendaHeadColumnLabelScope<C>>
+    data: QCalendarSlotData<QCalendarAgendaHeadColumnLabelScope<C>>
   ) => JSX.Element;
   column?: (
-    data: XCalendarSlotData<XCalendarAgendaColumnScope<C>>
+    data: QCalendarSlotData<QCalendarAgendaColumnScope<C>>
   ) => JSX.Element;
-  day?: (data: XCalendarSlotData<XCalendarDayScope>) => JSX.Element;
+  day?: (data: QCalendarSlotData<QCalendarDayScope>) => JSX.Element;
 };
 
-export type XCalendarAgendaClickDateEventData = {
-  scope: XCalendarHeadDayLabelScope;
+export type QCalendarAgendaClickDateEventData = {
+  scope: QCalendarHeadDayLabelScope;
 };
 
 const calendarAgendaProps = {
@@ -75,7 +75,7 @@ const calendarAgendaProps = {
   ...useMoveProps,
   ...useCheckChangeProps,
   onClickDate: Function as PropType<
-    (data: XCalendarAgendaClickDateEventData) => void
+    (data: QCalendarAgendaClickDateEventData) => void
   >,
 };
 

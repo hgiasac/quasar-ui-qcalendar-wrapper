@@ -7,11 +7,11 @@ import {
   MiniMode,
   CalendarViewType,
   DateEventFunction,
-  DateResource,
-  XCalendarHeadDayData,
-  XCalendarResourceLabelData,
-  XCalendarIntervalLabelData,
-  XCalendarTaskFooterDayData,
+  QDateResource,
+  QCalendarHeadDayData,
+  QCalendarResourceLabelData,
+  QCalendarIntervalLabelData,
+  QCalendarTaskFooterDayData,
 } from "./types";
 
 export type DateHeaderType = "stacked" | "inline" | "inverted";
@@ -45,13 +45,13 @@ const transitionProps = {
 };
 
 const useWeekdayStyle = {
-  weekdayStyle: Function as PropType<(data: XCalendarHeadDayData) => unknown>,
-  weekdayClass: Function as PropType<(data: XCalendarHeadDayData) => unknown>,
+  weekdayStyle: Function as PropType<(data: QCalendarHeadDayData) => unknown>,
+  weekdayClass: Function as PropType<(data: QCalendarHeadDayData) => unknown>,
 };
 
 const useDayStyle = {
-  dayStyle: Function as PropType<(data: XCalendarHeadDayData) => unknown>,
-  dayClass: Function as PropType<(data: XCalendarHeadDayData) => unknown>,
+  dayStyle: Function as PropType<(data: QCalendarHeadDayData) => unknown>,
+  dayClass: Function as PropType<(data: QCalendarHeadDayData) => unknown>,
 };
 
 const useResourceStyle = {
@@ -59,7 +59,7 @@ const useResourceStyle = {
     type: Function as PropType<(interval: Timestamp) => unknown>,
   },
   resourceClass: {
-    type: Function as PropType<(data: XCalendarResourceLabelData) => unknown>,
+    type: Function as PropType<(data: QCalendarResourceLabelData) => unknown>,
   },
 };
 
@@ -203,7 +203,7 @@ export const useIntervalProps = {
     type: Function as PropType<(data: Timestamp) => unknown>,
   },
   intervalClass: {
-    type: Function as PropType<(data: XCalendarIntervalLabelData) => unknown>,
+    type: Function as PropType<(data: QCalendarIntervalLabelData) => unknown>,
   },
   showIntervalLabel: {
     type: Function as PropType<(interval: Timestamp) => boolean>,
@@ -223,7 +223,7 @@ export const useSchedulerProps = {
     type: String as PropType<CalendarViewType>,
   },
   modelResources: {
-    type: Array as PropType<DateResource[]>,
+    type: Array as PropType<QDateResource[]>,
   },
   resourceKey: {
     type: [String, Number],
@@ -339,7 +339,7 @@ export const useTaskProps = {
   },
   cellWidth: [Number, String],
   footerDayClass: Function as PropType<
-    (data: XCalendarTaskFooterDayData) => unknown
+    (data: QCalendarTaskFooterDayData) => unknown
   >,
   taskWidth: {
     type: Number,
